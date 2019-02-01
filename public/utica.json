@@ -1,0 +1,22 @@
+[
+  {
+    "date": "1/1/2017",
+    "price": 46,
+    "production": 44
+  },
+    {
+    "date": "2/1/2017",
+    "price": 47,
+    "production": 46
+  },
+  {
+    "date": "3/1/2017",
+    "price": 57,
+    "production": 46
+  },
+  {
+    "date": "4/1/2017",
+    "price": 48,
+    "production": 56
+  }
+];
