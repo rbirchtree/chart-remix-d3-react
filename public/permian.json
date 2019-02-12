@@ -5,18 +5,18 @@
     "production": 40
   },
     {
-    "date": "2/1/2017",
+    "date": "2/2/2017",
     "price": 42,
     "production": 41
   },
   {
-    "date": "3/1/2017",
+    "date": "3/3/2017",
     "price": 37,
     "production": 36
   },
   {
-    "date": "4/1/2017",
+    "date": "4/4/2017",
     "price": 38,
     "production": 26
   }
-];
+]
