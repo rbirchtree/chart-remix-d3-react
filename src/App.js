@@ -36,7 +36,7 @@ class App extends Component {
     for (let key in data){
       sum +=  data[key].price * data[key].production;
     }
-    sum = sum.toLocaleString('USD');
+    sum = sum.toFixed(2).toLocaleString('USD');
 
     return (
       <div className="App">
