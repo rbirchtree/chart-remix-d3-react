@@ -21,7 +21,6 @@ class App extends Component {
       console.log('permian',permian)
       this.setState({values: {utica,permian}});
     });
-    console.log('utica',this.state.values.utica)
   }
 
   updateLocation = (e) =>{
@@ -31,8 +30,14 @@ class App extends Component {
 
   render() {
   	const data = this.state.values[this.state.location];
-    console.log('location',this.state.location)
-    console.log('state.values',this.state)
+    
+    let sum = 0;
+      
+    for (let key in data){
+      sum +=  data[key].price * data[key].production;
+    }
+    sum = sum.toLocaleString('USD');
+
     return (
       <div className="App">
       <h1>
@@ -49,7 +54,7 @@ class App extends Component {
     	</select>
 	  </h1>
 	  <LineChart data={data}/>
-	  <p> Data is fiction...</p>
+	  <p> Total  value of oil produced over a four month period...${sum}</p>
       </div>
     );
   }

@@ -23,13 +23,13 @@ class LineChart extends Component {
     .tickFormat(d3.timeFormat('%b %Y')).ticks(4);
   yAxisLeft = d3.axisLeft().scale(this.state.yScale)
     .tickFormat(d => `${'$' + d}`);
-  yAxisRight = d3.axisRight().scale(this.state.yScale1);
+  yAxisRight = d3.axisRight().scale(this.state.yScale1)
+    .tickFormat(d => `${d + ' bbl '}`);
 
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (!nextProps.data) return null; // data hasn't been loaded yet so do nothing
     const {data} = nextProps;
-    console.log('data',data)
     const {xScale, yScale, yScale1, lineGenerator} = prevState;
     // data has changed, so recalculate scale domains
     const timeDomain = d3.extent(data, d => d.date);
@@ -60,7 +60,7 @@ class LineChart extends Component {
   }
 
   render() {
-
+    console.log('this.state', this.state)
     return (
       <svg width={width} height={height}>
         <path d={this.state.price} fill='none' stroke={red} strokeWidth='3' />
@@ -68,7 +68,7 @@ class LineChart extends Component {
         <g>
           <g ref='xAxis' transform={`translate(0, ${height - margin.bottom})`} />
           <g ref='yAxisLeft' transform={`translate(${margin.left}, 0)`} />
-          <g ref='yAxisRight' transform={`translate(${width-margin.right}, 0)`} />
+          <g ref='yAxisRight' transform={`translate(${width-margin.right - 5}, 0)`} />
         </g>
       </svg>
     );
