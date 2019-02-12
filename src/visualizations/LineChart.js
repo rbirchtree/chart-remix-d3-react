@@ -18,9 +18,7 @@ class LineChart extends Component {
     //yscale basically the same set-up
     lineGenerator: d3.line(),
   };
-/*  var yAxisRight = d3.svg.axis().scale(y1)
-    .orient("right").ticks(5);*/
-  //change highs = price and lows = production to price and production
+
   xAxis = d3.axisBottom().scale(this.state.xScale)
     .tickFormat(d3.timeFormat('%b %Y')).ticks(4);
   yAxisLeft = d3.axisLeft().scale(this.state.yScale)
@@ -33,7 +31,6 @@ class LineChart extends Component {
     const {data} = nextProps;
     console.log('data',data)
     const {xScale, yScale, yScale1, lineGenerator} = prevState;
-    //alert('hi')
     // data has changed, so recalculate scale domains
     const timeDomain = d3.extent(data, d => d.date);
     const priceMax = d3.max(data, d => d.price);

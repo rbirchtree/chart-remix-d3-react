@@ -21,6 +21,7 @@ class App extends Component {
       console.log('permian',permian)
       this.setState({values: {utica,permian}});
     });
+    console.log('utica',this.state.values.utica)
   }
 
   updateLocation = (e) =>{
