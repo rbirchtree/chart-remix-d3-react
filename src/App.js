@@ -9,22 +9,8 @@ class App extends Component {
     location: 'utica',
     values: {}
   };
-  //sf = utica
-  //ny = permian
-  //work on getting data from component
+  
   componentDidMount() {
-  /*	fetch(`${process.env.PUBLIC_URL}/permian.json`)
-  		.then(response => response.json())
-  		.then(permian => {
-  			permian.forEach(day => day.date = new Date(day.date));
-  			this.setState({values: permian});
-  		});
-  		console.log('values',this.state.values)*/
-//so json files work...
-/*  fetch("my.json")
-	.then(response => response.json())
-	.then(parsed => /* 
-	parsed contains the parsed json object *//*);*/
    Promise.all([
       fetch(`${process.env.PUBLIC_URL}/utica.json`),
       fetch(`${process.env.PUBLIC_URL}/permian.json`),
@@ -32,8 +18,7 @@ class App extends Component {
     .then(([utica, permian]) => {
       utica.forEach(day => day.date = new Date(day.date));
       permian.forEach(day => day.date = new Date(day.date));
-      // am.forEach(day => day.date = new Date(day.date));
-      
+      console.log('permian',permian)
       this.setState({values: {utica,permian}});
     });
   }
