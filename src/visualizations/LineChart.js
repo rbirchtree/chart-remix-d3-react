@@ -68,7 +68,7 @@ class LineChart extends Component {
         <g>
           <g ref='xAxis' transform={`translate(0, ${height - margin.bottom})`} />
           <g ref='yAxisLeft' transform={`translate(${margin.left}, 0)`} />
-          <g ref='yAxisRight' transform={`translate(${width-margin.right - 5}, 0)`} />
+          <g ref='yAxisRight' transform={`translate(${width-margin.right}, 0)`} />
         </g>
       </svg>
     );

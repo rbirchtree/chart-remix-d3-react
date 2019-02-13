@@ -36,8 +36,12 @@ class App extends Component {
     for (let key in data){
       sum +=  data[key].price * data[key].production;
     }
-    sum = sum.toFixed(2).toLocaleString('USD');
 
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    sum = sum.toFixed(2).toLocaleString('USD');
+    sum = numberWithCommas(sum);
     return (
       <div className="App">
       <h1>
@@ -54,7 +58,7 @@ class App extends Component {
     	</select>
 	  </h1>
 	  <LineChart data={data}/>
-	  <p> Total  value of oil produced over a four month period...${sum}</p>
+	  <p> Total  value of oil produced over a four month period is...${sum}</p>
       </div>
     );
   }
