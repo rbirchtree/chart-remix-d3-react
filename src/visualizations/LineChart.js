@@ -9,13 +9,12 @@ const blue = '#52b6ca';
 
 class LineChart extends Component {
   state = {
-    price: null, // svg path command for all the high temps
-    production: null, // svg path command for low temps,
+    price: null, // svg path command for all the high prices
+    production: null, // svg path command for production,
     // d3 helpers
     xScale: d3.scaleTime().range([margin.left, width - margin.right]),
     yScale: d3.scaleLinear().range([height - margin.bottom, margin.top]),
     yScale1: d3.scaleLinear().range([height - margin.bottom, margin.top]),
-    //yscale basically the same set-up
     lineGenerator: d3.line(),
   };
 
@@ -55,12 +54,10 @@ class LineChart extends Component {
   componentDidUpdate() {
     d3.select(this.refs.xAxis).call(this.xAxis);
     d3.select(this.refs.yAxisLeft).call(this.yAxisLeft);
-    // add yaxis right
     d3.select(this.refs.yAxisRight).call(this.yAxisRight);
   }
 
   render() {
-    console.log('this.state', this.state)
     return (
       <svg width={width} height={height}>
         <path d={this.state.price} fill='none' stroke={red} strokeWidth='3' />

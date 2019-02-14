@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LineChart from './visualizations/LineChart';
 import './App.css';
-//https://github.com/sxywu/react-d3-example/blob/master/src/App.js
 
 
 class App extends Component {
@@ -18,14 +17,12 @@ class App extends Component {
     .then(([utica, permian]) => {
       utica.forEach(day => day.date = new Date(day.date));
       permian.forEach(day => day.date = new Date(day.date));
-      console.log('permian',permian)
       this.setState({values: {utica,permian}});
     });
   }
 
   updateLocation = (e) =>{
   	this.setState({location: e.target.value})
-  	//change to redux later?
   };
 
   render() {
@@ -37,11 +34,8 @@ class App extends Component {
       sum +=  data[key].price * data[key].production;
     }
 
-    function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
     sum = sum.toFixed(2).toLocaleString('USD');
-    sum = numberWithCommas(sum);
+    sum = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return (
       <div className="App">
       <h1>
